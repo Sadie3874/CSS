@@ -4,11 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Divs and Spans</title>
+    <title>Typography</title>
     <style>
       body {
         background-color: #f5f5ff;
-        color: midnightblue;
       }
       nav ul {
         list-style: none;
@@ -22,45 +21,42 @@
         margin: 4px;
         border: 2px solid black;
         padding: 5px;
-
         background-color: #191970;
         color: #f5f5ff;
       }
 
       h1 {
         text-align: center;
-        font-size: 4rem;
+        font-size: 6.4rem;
+        color: midnightblue;
+        font-weight: 700;
+        text-decoration: underline;
       }
-      /*
-        this styles all divs on the web page to have a blackground color of light blue, 
-        sets the div to use the automatic width of the div and sets the height to 200px.
-        this also styles the border to have a width of 2px with a solid black line, 
-        rounds the corners of the div to have a radius of 5px, and adds 10px of padding
-        to the top and bottem of the div, as well as 20px of padding on the left and right.
-        finnaly alligns the text to center.   
-      */
       div {
         background-color: #d4ebf2;
         width: auto;
-        height: 200px;
+        height: 300px;
         border: 2px solid black;
-        border-radius: 5px;
+        border-radius: 7px;
         padding: 10px 20px;
         text-align: center;
       }
-
-      p {
+      h2 {
         font-size: 2.4rem;
-        color: #313131;
+        font-style: italic;
+        text-transform: capitalize;
+        font-weight: bold;
+        word-spacing: 2mm;
+      }
+      p {
+        font-size: 2rem;
+        color: midnightblue;
+        line-height: 140%;
+        letter-spacing: 1mm;
       }
       #style-by-id {
         font-family: Georgia, "Times New Roman", Cambria, serif;
-        font-weight: bold;
       }
-      /*
-        styles all spans on the web pag to underline to the text
-        inside span and chagees the text to be itaalicized.
-      */
       span {
         text-decoration: underline;
         font-style: italic;
@@ -83,25 +79,12 @@
       </ul>
     </nav>
     <main>
-      <h1>Divs and Spans</h1>
-      <!--
-        not this is not the proper way to use a div beacuse i have not used all the proper semantic tags yet
-
-        this is a div which is short for divison. it is block element that acts like a container for multiple block elements 
-       -->
+      <h1>Typography</h1>
       <div>
-        <p>this page shows the effects of adding Internal CSS to HTML tags</p>
+        <h2>this page shows the effects of adding typography CSS to HTML tags</h2>
 
-        <p>Does this parapgraph have the same styling as my other parapgraphs?</p>
-
-        <!-- 
-          this demonstraites the use of span, which is an inline element used to group multiple inline elements.
-          it can also be used to style specific words or sets of words inside other HTML elements, 
-          which is how it is being used in this context 
-          
-        -->
-
-        <p id="style-by-id">
+        <p id="style-by-id">Does this parapgraph have the same styling as my other parapgraphs?</p>
+        <p>
           This paragraph will show the effect of giving an element an ID and
           <span>styling</span> that ID
         </p>
