@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Divs and Spans</title>
     <style>
+      /* 
+        this styles the content so that when we scroll on the website,
+        it is a smoother movement. 
+      */
+
+      html {
+        scroll-behavior: smooth;
+      }
       body {
         background-color: #f5f5f5;
         color: midnightblue;
@@ -84,6 +92,69 @@
         text-decoration: underline;
         font-style: italic;
       }
+      #back-to-top {
+        /* 
+        we change the display to a flexbos so that we can 
+        center the text inside the anchor hoizontallly and verticallly  
+        */
+        display: -ms-flexbox;
+        display: -moz-box;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+
+        /* 
+          this allows us to fix the position of the back to top
+          button to hte bottom right corner of the web page and makes it follow 
+          ser as they scroll, this can also be used for nav to follow user when they 
+          scroll. 
+        */
+        position: fixed;
+        bottom: 20px;
+        right: 10px;
+
+        width: 80px;
+        height: 80px;
+
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+
+        /* 
+        this allows us to center our content horizontally in the 
+        back to top anchor. 
+      */
+        -ms-flex-align: center;
+        -moz-box-align: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+
+        border: #121212 solid 2px;
+
+        -moz-border-radius: 40px;
+        -webkit-border-radius: 40px;
+        border-radius: 40px;
+
+        /* 
+          this allow us to style the background of the top of the Back To
+          Top buttom to be a radial gradient beacuse it is a round buttom. 
+          the first color is at the center of the gradient and the second 
+          color s at the edge of the round area.
+        */
+        background: -o-radial-gradient(#91eae4, #86a8e7);
+        background: -moz-radial-gradient(#91eae4, #86a8e7);
+        background: -webkit-radial-gradient(#91eae4, #86a8e7);
+        background: radial-gradient(#91eae4, #86a8e7);
+
+        color: #313131;
+
+        text-align: center;
+        font-weight: bold;
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
@@ -127,6 +198,23 @@
           <span>styling</span> that ID
         </p>
       </div>
+
+      <section>
+        <p>this page shows the effects of adding Internal CSS to HTML tags</p>
+
+        <p>Does this parapgraph have the same styling as my other parapgraphs?</p>
+      </section>
+      <div>
+        <p id="style-by-id">
+          This paragraph will show the effect of giving an element an ID and
+          <span>styling</span> that ID
+        </p>
+      </div>
+
+      <a href="#top" id="back-to-top"
+        >back <br />
+        to top</a
+      >
     </main>
   </body>
 </html>
