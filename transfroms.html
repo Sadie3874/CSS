@@ -39,7 +39,7 @@
       nav ul {
         /* this rotates the element nav and ul by 30 degress which will go
         to the bottem right   */
-        transform: rotate(30deg);
+        /* transform: rotate(30deg); */
         list-style: none;
       }
       nav li {
@@ -60,7 +60,7 @@
         text-align: center;
         font-size: 4rem;
         /*  */
-        transform: translate(50px, 30%);
+        /* transform: translate(50px, 30%); */
       }
       /*
         this styles all divs on the web page to have a blackground color of light blue,
@@ -73,18 +73,18 @@
       div {
         background-color: #d4ebf2;
         width: auto;
-        height: 200px;
-        border: 2px solid black;
+        /* height: 200px;
+        border: 2px solid black; 
         border-radius: 5px;
         padding: 10px 20px;
-        text-align: center;
-        /* this styles the div to tilt in the x diretion.   */
-        transform: skew(10deg);
+        text-align: center; 
+        this styles the div to tilt in the x diretion.  
+        /* transform: skew(10deg); */
       }
 
       p {
         /* ths styles the heading to grow to a factor of 2.5 in the hirizontal and vertical directions */
-        transform: scale(2.5);
+        /* transform: scale(2.5); */
         font-size: 2.4rem;
         color: #313131;
         line-height: 1.4cm;
@@ -100,6 +100,39 @@
       span {
         text-decoration: underline;
         font-style: italic;
+      }
+      .parent {
+        height: 300px;
+        width: 600px;
+        padding: 0 1em;
+        margin: 1em;
+        border: 1px solid black;
+      }
+      .child {
+        font-size: 1.2rem;
+        position: relative;
+        top: 50%;
+        transform: perspective(1px) translateY(-50%);
+      }
+      .box {
+        width: 10rem;
+        background-color: black;
+        padding: 1rem;
+        margin: 1rem;
+        border-radius: 1rem;
+        position: relative;
+      }
+      .box::before {
+        content: "";
+        width: 1rem;
+        height: 1rem;
+        background-color: black;
+        overflow: hidden;
+        position: absolute;
+        right: -0.5rem;
+        top: 50%;
+        transform: rotate(45deg);
+        margin-top: -0.5rem;
       }
       #back-to-top {
         /* 
@@ -218,6 +251,24 @@
           This paragraph will show the effect of giving an element an ID and
           <span>styling</span> that ID
         </p>
+      </div>
+
+      <div class="parent">
+        <div class="child">
+          i dont know what to put i this so i am typing this sentance out hahahah.
+        </div>
+      </div>
+
+      <div class="parent">
+        <div class="child">
+          i dont know what to put i this so i am typing this sentance out hahahah.
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="box-content">
+          i dont know what to put i this so i am typing this sentance out hahahah.
+        </div>
       </div>
 
       <a href="#top" id="back-to-top"
