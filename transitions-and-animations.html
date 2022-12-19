@@ -15,6 +15,8 @@
         scroll-behavior: smooth;
       }
       body {
+        display: inline-block;
+
         background-color: #f5f5f5;
         color: midnightblue;
 
@@ -25,11 +27,14 @@
         opacity: 0;
         transform: translateY(-100px);
 
-        /* this defines our animation 
+        /* 
+          
+        this defines our animation 
            
           we define the animation-name as fade-in
           we define the animation-duration(how long the animation lasts) 
-          as 1 second. we define the animation-timing-function(how the styling chages as it moves through the animation)
+          as 1 second.
+          we define the animation-timing-function (how the styling chages as it moves through the animation)
           as ease-in, which means it will slowly start the animation and speed up to the end 
           we define the animation delay as 2 seconds.
           we defie the animation-fill-mode(whether the styling is kept at the end of the animation
@@ -48,7 +53,7 @@
         animation: fade-in 1s ease-in 2s forwards;
       }
       /* 
-      this defines the animato=ion itself. we use @keyframes to show that we are creating and 
+      this defines the animation itself. we use @keyframes to show that we are creating and 
       amination and then we use the same nae that we defines in the animation property(i.e., fade-in)
 
       then, we define the starting point of the animation(from) and the styling at the starting point.
@@ -63,7 +68,7 @@
           transform: translateY(-100px);
         }
         to {
-          opacity: 0;
+          opacity: 100;
           transform: translateY(0);
         }
       }
@@ -122,6 +127,21 @@
         text-align: center;
         font-size: 4rem;
       }
+      section {
+        position: relative;
+
+        width: 25%;
+        /* NOTE: the only values that can be used for float are left, right and inherit.  */
+        float: left;
+        margin: 20px;
+        margin-right: 2.5%;
+
+        background-color: #191970;
+
+        height: 60vh;
+
+        border-radius: 20px;
+      }
       /*
         this styles all divs on the web page to have a blackground color of light blue,
         sets the div to use the automatic width of the div and sets the height to 200px.
@@ -131,17 +151,28 @@
         finnaly alligns the text to center. credit to https://cssgradient.io/ for this design.
       */
       div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+
         background-color: #d4ebf2;
-        width: auto;
-        height: 200px;
+        display: inline-block;
+        width: 80%;
         border: 2px solid black;
         border-radius: 5px;
         padding: 10px 20px;
         text-align: center;
+
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
       }
 
       p {
-        font-size: 2.4rem;
+        font-size: 1.6rem;
         color: #313131;
         line-height: 1.4cm;
       }
@@ -220,6 +251,18 @@
         font-weight: bold;
         text-decoration: none;
       }
+
+      #cleared {
+        /* when we dont want an element to float beside other floated elements,
+           we use the clear property. This property will break the floating of elements 
+           and any element added to the website underneath this element will also not float
+           beside other elements of the page
+           
+           NOTE: whatever value you use for float is the value you should use for clear
+           (i.e., in this case is left). 
+        */
+        clear: left;
+      }
     </style>
   </head>
   <body>
@@ -246,35 +289,46 @@
         this is a div which is short for divison. it is block element that acts like a container for multiple block elements 
        -->
       <section>
-        <p>this page shows the use of gradients</p>
+        <div>
+          <p>this page shows the use of gradients</p>
 
-        <p>Does this parapgraph have the same styling as my other parapgraphs?</p>
+          <p>Does this parapgraph have the same styling as my other parapgraphs?</p>
+        </div>
       </section>
-      <div>
-        <!-- 
-          this demonstraites the use of span, which is an inline element used to group multiple inline elements.
-          it can also be used to style specific words or sets of words inside other HTML elements, 
-          which is how it is being used in this context 
-          
-        -->
-
-        <p id="style-by-id">
-          This paragraph will show the effect of giving an element an ID and
-          <span>styling</span> that ID
-        </p>
-      </div>
 
       <section>
-        <p>this page shows the effects of adding Internal CSS to HTML tags</p>
+        <div>
+          <p>this page shows the use of transitions and animations</p>
 
-        <p>Does this parapgraph have the same styling as my other parapgraphs?</p>
+          <p>Does this parapgraph have the same styling as my other parapgraphs?</p>
+        </div>
       </section>
-      <div>
-        <p id="style-by-id">
-          This paragraph will show the effect of giving an element an ID and
-          <span>styling</span> that ID
-        </p>
-      </div>
+
+      <section>
+        <div>
+          <p>this page shows the use of transitions and animations</p>
+
+          <p>Does this parapgraph have the same styling as my other parapgraphs?</p>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <p>this page shows the use of transitions and animations</p>
+
+          <p>Does this parapgraph have the same styling as my other parapgraphs?</p>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <p>this page shows the use of transitions and animations</p>
+
+          <p>Does this parapgraph have the same styling as my other parapgraphs?</p>
+        </div>
+      </section>
+
+      <p id="cleared">this element should not be beside the other boxes!</p>
 
       <a href="#top" id="back-to-top"
         >back <br />
