@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Positioning</title>
     <style>
-      /* 
+      /*
         this styles the content so that when we scroll on the website,
-        it is a smoother movement. 
+        it is a smoother movement.
       */
 
       html {
@@ -18,19 +18,20 @@
         background-color: #f5f5f5;
         color: midnightblue;
       }
-      /* this si how we apply liner gradients to a polygonal area.
+
+      nav {
+        position: relative;
+        padding: 20px;
+        /* this is how we apply liner gradients to a polygonal area.
 
         this first paramerter is the direction of the linear gradient(can be to top,
-        bottem,left,right,top left,top right, bottem rght Etc. or can be a sepecific degree amount 
+        bottem,left,right,top left,top right, bottem rght Etc. or can be a sepecific degree amount
         60deg)
 
         the x parameteres the colors to show in the gradient
-        add the different web borswer they are called prefixes, fix compadabilty for other 
-        webbrowsers 
+        add the different web borswer they are called prefixes, fix compadabilty for other
+        webbrowsers
       */
-      nav {
-        padding: 20px;
-
         background: linear-gradient(60deg, #7f7fd5, #86a8e7, #91eae4);
         background: -moz-linear-gradient(60deg, #7f7fd5, #86a8e7, #91eae4);
         background: -o-linear-gradient(60deg, #7f7fd5, #86a8e7, #91eae4);
@@ -56,6 +57,56 @@
       h1 {
         text-align: center;
         font-size: 4rem;
+        background-color: #f5f5ff;
+        color: darkorchid;
+
+        /* this styles the h1 to have sticky positioning
+        Sticky positioing works like relative positioning(where an elements
+        will be placed in the normal flow of the website) until the user reaches
+        the scrool position defined by the top, left , bottom or right CSS prpertes.
+
+        in this case, the heading will be in the nornal flow of the website until
+        the user scrolls to the point where the heading reaches the top of the
+        window. at the point, the heading sticks to the top of the window*/
+
+        position: sticky;
+
+        top: 0;
+        /* this z-index property makes it so that the heading show up on the top if every other
+        element that has a lower Z-index value that 2.
+
+        NOTE - the z-index property only works on positioned elements  (i.e., not static) */
+        z-index: 2;
+      }
+      section {
+        /*
+          this styles the section to appear like it is in the normal flow of the website.
+          however, if we choose we can shift the element from its normal positioning
+          using the top, left, bootm and right properties beacause it uses relative positioning.
+        */
+        position: relative;
+
+        margin: 20px;
+
+        background-color: #191970;
+
+        height: 50vh;
+
+        border-radius: 20px;
+
+        z-index: 1;
+      }
+
+      section:first-of-type {
+        /*
+          this styles the first section element to be shifted from its normal position
+          by 100px from the top of its normal position and 150px from the left of its
+          normal position
+        */
+        top: 100px;
+        left: 150px;
+
+        border: 4px black solid;
       }
       /*
         this styles all divs on the web page to have a blackground color of light blue,
@@ -66,9 +117,25 @@
         finnaly alligns the text to center. credit to https://cssgradient.io/ for this design.
       */
       div {
+        /*
+        this styles the element to be positioned releated to its nearest
+        positioned ancestor. since the section elements are all positioed
+        relative, these divs are posiotioned in relation to the section they
+        are children of (i.e., inside of)
+
+        NOTE: if the section tag was not positioed (i.e., had to stadtic positioning),
+              these divs would be positioned realted to the body itself.
+
+        */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        display: inline-block;
+
         background-color: #d4ebf2;
         width: auto;
-        height: 200px;
+        height: 80%;
         border: 2px solid black;
         border-radius: 5px;
         padding: 10px 20px;
@@ -77,7 +144,7 @@
 
       p {
         font-size: 2.4rem;
-        color: #313131;
+        color: black;
         line-height: 1.4cm;
       }
       #style-by-id {
@@ -95,23 +162,32 @@
         font-style: italic;
       }
       #back-to-top {
-        /* 
-        we change the display to a flexbos so that we can 
-        center the text inside the anchor hoizontallly and verticallly  
+        /*
+        we change the display to a flexbos so that we can
+        center the text inside the anchor hoizontallly and verticallly
+
+        fixed: allows us to fix the position to the back to button
+        to the bottom right corner, of the webpage and makes it follow
+        the user as they scroll
         */
+        position: fixed;
+        bottom: 20px;
+        right: 10px;
+        width: 80px;
+        height: 80px;
         display: -ms-flexbox;
         display: -moz-box;
         display: -webkit-box;
         display: -webkit-flex;
         display: flex;
 
-        /* 
+        /*
           this allows us to fix the position of the back to top
-          button to hte bottom right corner of the web page and makes it follow 
-          ser as they scroll, this can also be used for nav to follow user when they 
-          scroll. 
+          button to hte bottom right corner of the web page and makes it follow
+          ser as they scroll, this can also be used for nav to follow user when they
+          scroll.
         */
-        position: fixed;
+
         bottom: 20px;
         right: 10px;
 
@@ -124,9 +200,9 @@
         -ms-flex-pack: center;
         justify-content: center;
 
-        /* 
-        this allows us to center our content horizontally in the 
-        back to top anchor. 
+        /*
+        this allows us to center our content horizontally in the
+        back to top anchor.
       */
         -ms-flex-align: center;
         -moz-box-align: center;
@@ -140,10 +216,10 @@
         -webkit-border-radius: 40px;
         border-radius: 40px;
 
-        /* 
+        /*
           this allow us to style the background of the top of the Back To
-          Top buttom to be a radial gradient beacuse it is a round buttom. 
-          the first color is at the center of the gradient and the second 
+          Top buttom to be a radial gradient beacuse it is a round buttom.
+          the first color is at the center of the gradient and the second
           color s at the edge of the round area.
         */
         background: -o-radial-gradient(#91eae4, #86a8e7);
@@ -184,35 +260,35 @@
         this is a div which is short for divison. it is block element that acts like a container for multiple block elements 
        -->
       <section>
-        <p>this page shows the effects of adding Internal CSS to HTML tags</p>
+        <div>
+          <p>this page shows the effects of adding Internal CSS to HTML tags</p>
 
-        <p>Does this parapgraph have the same styling as my other parapgraphs?</p>
+          <p>Does this parapgraph have the same styling as my other parapgraphs?</p>
+          <p id="style-by-id">
+            This paragraph will show the effect of giving an element an ID and
+            <span>styling</span> that ID
+          </p>
+        </div>
       </section>
-      <div>
-        <!-- 
+
+      <section>
+        <div>
+          <p>this page shows the effects of adding Internal CSS to HTML tags</p>
+
+          <p>Does this parapgraph have the same styling as my other parapgraphs?</p>
+          <!-- 
           this demonstraites the use of span, which is an inline element used to group multiple inline elements.
           it can also be used to style specific words or sets of words inside other HTML elements, 
           which is how it is being used in this context 
           
         -->
 
-        <p id="style-by-id">
-          This paragraph will show the effect of giving an element an ID and
-          <span>styling</span> that ID
-        </p>
-      </div>
-
-      <section>
-        <p>this page shows the effects of adding Internal CSS to HTML tags</p>
-
-        <p>Does this parapgraph have the same styling as my other parapgraphs?</p>
+          <p id="style-by-id">
+            This paragraph will show the effect of giving an element an ID and
+            <span>styling</span> that ID
+          </p>
+        </div>
       </section>
-      <div>
-        <p id="style-by-id">
-          This paragraph will show the effect of giving an element an ID and
-          <span>styling</span> that ID
-        </p>
-      </div>
 
       <a href="#top" id="back-to-top"
         >back <br />
