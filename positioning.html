@@ -20,8 +20,24 @@
       }
 
       nav {
-        position: relative;
-        padding: 20px;
+        /* 
+         the visibility preperty alllows you to change whether an element 
+         is shown(visible) or not shown(hidden). This property will still 
+         save the space that is taken upi by this element on the page.
+        */
+
+        /* visibility: hidden; */
+
+        /* 
+           the display property allows you to chnage how an element is whether an element is 
+           a block element, inline element, inline block element and more. 
+           the value of none will make it so that the element doesnt display on the web page 
+           and it does not sace the space that would be used by the element. 
+        */
+
+        /* display: none; */
+
+        padding: 10px 0;
         /* this is how we apply liner gradients to a polygonal area.
 
         this first paramerter is the direction of the linear gradient(can be to top,
@@ -42,10 +58,23 @@
       }
       nav li {
         display: inline-block;
+        width: 40%;
         margin: 10px;
         font-size: 1.5rem;
       }
       .nav-link {
+        width: 100%;
+        /* 
+        in this example, we ad to change the anchors inside
+        our lost items to be inline-block elements bacause 
+        by defult they are inline elements and inline elements 
+        do not allow you to change the width and height of those elements 
+        (i.e., width: 100%).
+
+        NOTE: this will be very important when we talk about
+              flex grid later on. 
+        */
+        display: inline-block;
         margin: 4px;
         border: 2px solid black;
         padding: 5px;
